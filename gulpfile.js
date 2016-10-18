@@ -8,6 +8,7 @@ var notify = require('gulp-notify');
 
 var browserSync = require('browser-sync');
 var reload = browserSync.reload;
+var historyApiFallback = require('connect-history-api-fallback')
 
 function buildScript(file, watch) {
   var props = {
@@ -50,7 +51,7 @@ function handleErrors() {
 }
 
 gulp.task('scripts', function() {
-  return buildScript('reactx.js', false); // this will run once because we set watch to false
+  return buildScript('Index.js', false); // this will run once because we set watch to false
   
     gutil.log('Rebundle...');
 
@@ -58,5 +59,5 @@ gulp.task('scripts', function() {
 
 
 gulp.task('default', ['scripts'], function() {
-  return buildScript('reactx.js', true); // browserify watch for JS changes
+  return buildScript('Index.js', true); // browserify watch for JS changes
 });
