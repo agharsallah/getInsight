@@ -2,7 +2,7 @@
     const webpack = require('webpack');
 
 module.exports = {
-
+ devtool: 'eval',
 context: __dirname,
 entry: [
     'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
@@ -10,13 +10,10 @@ entry: [
 ],
 module: {
     loaders: [{
-            test: /\.jsx?$/,
-            exclude: /node_modules/,
-            loader: 'babel',
-				
-            query: {
-               presets: ['es2015', 'react']
-            }
+            test: /\.js$/,           
+             exclude: /node_modules/,
+            loaders: ['react-hot', 'babel']
+	   
          },
         {
             // Test expects a RegExp! Note the slashes!

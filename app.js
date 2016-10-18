@@ -35,7 +35,11 @@ var config = require ('./webpack.config.js')
 var compiler = webpack(config)
 app.use(webpackDevMiddleware(compiler, {  
     publicPath: config.output.publicPath,  
-    stats: {colors: true}  
+    stats: {colors: true},
+    hot: true,
+   	watchOptions: {
+    	poll: true
+  	}
 }))
 app.use(webpackHotMiddleware(compiler, {  
     log: console.log 
