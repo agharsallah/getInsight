@@ -15,6 +15,8 @@ var MongoStore = require('connect-mongo')(session);
 
 var app = express();
 
+
+
 app.locals.pretty = true;
 app.set('port', process.env.PORT || 3000);
 app.set('views', __dirname + '/app/server/views');
@@ -24,6 +26,20 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(require('stylus').middleware({ src: __dirname + '/app/public' }));
 app.use(express.static(__dirname + '/app/public'));
+
+/*Webpack midelware*/
+var webpack = require ('webpack')  
+var webpackDevMiddleware = require ('webpack-dev-middleware')  
+var webpackHotMiddleware = require ('webpack-hot-middleware')  
+var config = require ('./webpack.config.js')  
+var compiler = webpack(config)
+app.use(webpackDevMiddleware(compiler, {  
+    publicPath: config.output.publicPath,  
+    stats: {colors: true}  
+}))
+app.use(webpackHotMiddleware(compiler, {  
+    log: console.log 
+})) 
 
 // build mongo database connection url //
 
