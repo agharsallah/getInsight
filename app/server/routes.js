@@ -37,23 +37,38 @@ module.exports = function(app) {
 			}
 		});
 	});
-	
-// logged-in user homepage //
-	
+//	
 	app.get('/home', function(req, res) {
 		if (req.session.user == null){
 	// if user is not logged-in redirect back to login page //
 			res.redirect('/');
 		}	else{
 			res.render('home', {
-				title : 'Control Panel',
+				title : 'Get-Insight',
 				countries : CT,
-				udata : req.session.user
+				udata : req.session.user,
 			});
 		}
 	});
 	
-	app.post('/home', function(req, res){
+
+
+// logged-in user profile //
+	
+	app.get('/profile', function(req, res) {
+		if (req.session.user == null){
+	// if user is not logged-in redirect back to login page //
+			res.redirect('/');
+		}	else{
+			res.render('profile', {
+				title : 'Get-Insight',
+				countries : CT,
+				udata : req.session.user,
+			});
+		}
+	});
+	
+	app.post('/profile', function(req, res){
 		if (req.session.user == null){
 			res.redirect('/');
 		}	else{

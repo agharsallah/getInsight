@@ -8,7 +8,7 @@ var moment 		= require('moment');
 	ESTABLISH DATABASE CONNECTION
 */
 
-var dbName = process.env.DB_NAME || 'node-login';
+var dbName = process.env.DB_NAME || 'democrassy';
 var dbHost = process.env.DB_HOST || 'localhost'
 var dbPort = process.env.DB_PORT || 27017;
 
