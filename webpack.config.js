@@ -15,14 +15,7 @@ module.exports = {
                              exclude: /node_modules/,
                             loaders: ['react-hot', 'babel']
             	   
-                        },
-                        /*{
-                            // Test expects a RegExp! Note the slashes!
-                            test: /\.css$/,
-                            loaders: ['style', 'css'],
-                            // Include accepts either a path or an array of paths.
-                            include: path.join(__dirname, 'app/public/css')
-                        }*/
+                        }
                         ]
     },
 

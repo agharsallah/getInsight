@@ -1,0 +1,9 @@
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: #BBDEFB;
+}
+.boutonRadio{
+margin-left: 10px;
+}
