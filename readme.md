@@ -2,14 +2,33 @@
 
 [![node-login](./readme.img/node-login.jpg?raw=true)](https://nodejs-login.herokuapp.com)
 
-###A basic account management system built in Node.js with the following features:
+###Idea generation:
 
-* New User Account Creation
-* Secure Password Reset via Email
-* Ability to Update / Delete Account
-* Session Tracking for Logged-In Users
-* Local Cookie Storage for Returning Users
-* Blowfish-based Scheme Password Encryption
+*so if you are doing a market research it would be great to find infos related to the subject easily
+
+*if you are going to diliver a presentation we find difficulties finding the right statistics or infos Jumping (hoping) from one site to another.
+and even if we found them we find dificulties transforming the raw data into valuable charts readable by the human eye
+
+*If you want some infos or you want to ask some questions or do a survey it would be quite hard to find the adequate people to target (with a specified age-sexe-location,have house, educated,..) and even if you find the right ppl how would you encourge them to answer the question ?
+
+* //Politics people (in the const)
+
+* use the AINSI data to see how many ppl does the  
+
+*So the MVP solution for getting votes,targeted Surveys answers is a platform where the user (premium) who needs adequate answers pay a small fee and the question will be directed to the ppl who match the user specification, the user will get real time results.
+As for the cliznts they must insert their ID to get checked and start getting 'rewarded' for getting answers
+for instance if you raise 1000 pt (10pt for answer) you will enter lottery to win smartphone recharging cards ...you will only get rewarded for the questions we send to you 
+User can also answer Questions from the the feeds page and get 1 point for an answer 
+if you write a comment answering a survey and the answer 
+
+*User (premium) won't know your credential your answer will be anonym
+
+* possibility to add infos specified to user country (got it from signup):
+-- growth charts -
+-- new projects, On hold and stucked (by the municipality..) 
+-- the money provided for the city
+...
+
 
 
 ###Node-Login is built on top of the following libraries :
@@ -22,13 +41,14 @@
 * [EmailJS](http://github.com/eleith/emailjs) - Node.js > SMTP Server Middleware
 * [Moment.js](http://momentjs.com/) - Lightweight Date Library
 * [Twitter Bootstrap](http://twitter.github.com/bootstrap/) - UI Component & Layout Library
+*
 
 
 ##Installation & Setup
 1. Install [Node.js](https://nodejs.org/) & [MongoDB](https://www.mongodb.org/) if you haven't already.
 2. Clone this repository and install its dependencies.
 		
-		> git clone git://github.com/braitsch/node-login.git node-login
+		> download the project
 		> cd node-login
 		> npm install
 		
@@ -54,12 +74,6 @@ To do this on OSX you can simply add them to your .profile or .bashrc file.
 
 [![node-login](./readme.img/retrieve-password.jpg?raw=true)](https://nodejs-login.herokuapp.com)
 
-##Live Demo
-
-A [Live Demo](https://nodejs-login.herokuapp.com) and [some thoughts about the app's architecture.](http://kitchen.braitsch.io/building-a-login-system-in-node-js-and-mongodb/)
-
-For testing purposes you can view a [database dump of all accounts here](https://nodejs-login.herokuapp.com/print).    
-Note this database automatically resets every 24 hours.
 
 ##Contributing
 

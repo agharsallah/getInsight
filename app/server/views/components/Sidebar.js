@@ -40,7 +40,7 @@ class Sidebar extends React.Component {
             <div className='col-md-12'>
                        <div className=" col-md-4 ">
                               
-                            <Paper>
+                            <Paper >
                               <List>
                                 <Subheader>Questions</Subheader>
                                  <RadioButtonGroup 
