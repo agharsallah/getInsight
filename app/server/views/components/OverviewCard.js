@@ -10,23 +10,36 @@ var numeral = require('numeral');
 class OverviewCard extends Component{
 	constructor(props) {
 		super(props);
-		numeral(som).format('0.0a')
 		this.state = {
-			count:'...'
+			count:'...',
+			som:'',
+			checked:false,
+			radioVal:''
 		}
 		this.handleCheck=this.handleCheck.bind(this)
+		this.handleDetail=this.handleDetail.bind(this)
+	}
+	handleDetail(){
+		console.log(this.state.checked)
+
+		var check = ! this.state.checked;
+		this.setState({
+			checked:check,
+		});
 	}
 	handleCheck(e){
-		console.log(e.currentTarget.value)
 		const val =e.currentTarget.value
-		var som = 0
+		var som = 0 /*som is a var that contains the number of population */
 
+		/*'quinz' could be coming from the view to indicate the year */
 		if (val ==='both') {
 			data.map((result)=>{
 				som+=JSON.parse(result.quinz)
 			})
 			this.setState({
-				count:numeral(som).format('0.0a')
+				som:numeral(som).format('0,0')+' K',
+				count:numeral(som).format('0.0a'),
+				radioVal:'total pop is :'
 			});
 		} else if(val ==='female'){
 			/*data.map((result)=>{
@@ -36,12 +49,16 @@ class OverviewCard extends Component{
 			})*/
 			som = data[1].quinz
 			this.setState({
-				count:numeral(som).format('0.0a')
+				som:numeral(som).format('0,0')+" K",
+				count:numeral(som).format('0.0a'),
+				radioVal:'Females is '
 			});
 		}else{
 			som = data[0].quinz
 			this.setState({
-				count:numeral(som).format('0.0a')
+				som:numeral(som).format('0,0')+" K",
+				count:numeral(som).format('0.0a'),
+				radioVal:'Males is'
 			});
 		}
 
@@ -50,7 +67,13 @@ class OverviewCard extends Component{
 	render(){
 		return(
 			<div>
-			<NumberPop count={this.state.count}/>
+			{/*this component shows the number|% of population */}
+			<NumberPop 
+				count={this.state.count} 
+				checked={this.state.checked}
+				countD ={this.state.som}
+				radioVal={this.state.radioVal}
+			/>
 			
 			{/*Checkbox for sexe*/}
 			{/*style={{dislay:'none'}}*/}
@@ -58,7 +81,7 @@ class OverviewCard extends Component{
 			<Subheader>Sexe</Subheader>
 			
 			<RadioButtonGroup  name="questions" className='boutonRadio'
-			 onChange={this.handleCheck} defaultSelected='both'>
+			 onChange={this.handleCheck} >
 			<RadioButton
 		      label="Female"
 		      value="female"
@@ -76,7 +99,9 @@ class OverviewCard extends Component{
 		    />
 		    </RadioButtonGroup>
 		        <Checkbox
-			      label="Simple"
+			      label="details"
+			      onCheck={this.handleDetail}
+			      checked={this.state.checked}
 			    />
 		    </div>
 		    <br/>
