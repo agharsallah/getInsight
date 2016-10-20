@@ -1,6 +1,7 @@
 module.exports={
 	question:[
-      {Question: 'Population'},
-      {Question: 'Transport'}
+      {Question: 'Population Overview'},
+      {Question: 'Population per City'},
+      {Question: 'Population per Age rate'}
     ]
 }
