@@ -40,7 +40,11 @@ class Sidebar extends React.Component {
                             <Paper zDepth={3} style ={{height : '500px'}} >
                               <List>
                                 <Subheader>Population</Subheader>
-                                 <RadioButtonGroup name="questions" className='boutonRadio' onChange={this.handleChange}>
+                                 <RadioButtonGroup 
+                                  name="questions" 
+                                  className='boutonRadio' 
+                                  onChange={this.handleChange} 
+                                  defaultSelected='Population Overview'>
                                     
                                     {resultRows}
 

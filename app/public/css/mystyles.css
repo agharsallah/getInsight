@@ -14,11 +14,13 @@ margin-left: 10px;
 text-align: center;
 height:100px;
 }
+
+/* NumberProp component */
 .texteffect{
   font-size: 40px;
   margin-top: 28px;
 }
-/* center to  */
-.center{
-  width:100 %;
+.detaileffect{
+  font-size: 35px;
+  margin-top: 15px;
 }

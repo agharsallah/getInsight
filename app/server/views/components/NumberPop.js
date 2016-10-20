@@ -26,8 +26,8 @@ class NumberPop extends Component{
 	                   zDepth={0}
 	                   style={{display: display,height: '150px'}}
 	                >
-	             	<p className='texteffect'>{this.props.countD}</p> 
-	             	<p className='texteffect'>{this.props.percentege}</p> 
+	             	<p className='detaileffect'>{this.props.countD}</p> 
+	             	<p className='detaileffect'>{this.props.percentege}</p> 
 	             	</Paper>
              	<div className={col} style={{height: '150px'}}></div>
     		</div>

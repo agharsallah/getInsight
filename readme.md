@@ -1,15 +1,13 @@
-#[Node-Login](https://nodejs-login.herokuapp.com)
-
-[![node-login](./readme.img/node-login.jpg?raw=true)](https://nodejs-login.herokuapp.com)
+#[Get Insight]
 
 ###Idea generation:
 
-*so if you are doing a market research it would be great to find infos related to the subject easily
+* so if you are doing a market research it would be great to find infos related to the subject easily
 
-*if you are going to diliver a presentation we find difficulties finding the right statistics or infos Jumping (hoping) from one site to another.
+* if you are going to diliver a presentation we find difficulties finding the right statistics or infos Jumping (hoping) from one site to another.
 and even if we found them we find dificulties transforming the raw data into valuable charts readable by the human eye
 
-*If you want some infos or you want to ask some questions or do a survey it would be quite hard to find the adequate people to target (with a specified age-sexe-location,have house, educated,..) and even if you find the right ppl how would you encourge them to answer the question ?
+* If you want some infos or you want to ask some questions or do a survey it would be quite hard to find the adequate people to target (with a specified age-sexe-location,have house, educated,..) and even if you find the right ppl how would you encourge them to answer the question ?
 
 * //Politics people (in the const)
 
@@ -21,7 +19,7 @@ for instance if you raise 1000 pt (10pt for answer) you will enter lottery to wi
 User can also answer Questions from the the feeds page and get 1 point for an answer 
 if you write a comment answering a survey and the answer 
 
-*User (premium) won't know your credential your answer will be anonym
+* User (premium) won't know your credential your answer will be anonym
 
 * possibility to add infos specified to user country (got it from signup):
 -- growth charts -
@@ -71,8 +69,6 @@ To do this on OSX you can simply add them to your .profile or .bashrc file.
 	export EMAIL_HOST='smtp.gmail.com'
 	export EMAIL_USER='your.email@gmail.com'
 	export EMAIL_PASS='1234'
-
-[![node-login](./readme.img/retrieve-password.jpg?raw=true)](https://nodejs-login.herokuapp.com)
 
 
 ##Contributing

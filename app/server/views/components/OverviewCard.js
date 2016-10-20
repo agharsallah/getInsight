@@ -5,6 +5,7 @@ import data from './data/data'
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
+import AssociatedPie from './AssociatedPie'
 var numeral = require('numeral');
 
 class OverviewCard extends Component{
@@ -113,7 +114,12 @@ class OverviewCard extends Component{
 		    <br/>
 		    <Divider/>
 
-
+		{/*associated chart*/}
+		<Subheader>associated chart</Subheader>
+			<AssociatedPie></AssociatedPie>
+		<Divider/>
+		{/*growth chart*/}
+		<Subheader>growth chart</Subheader>
 			</div>
 		);
 	}
