@@ -11,10 +11,11 @@ class OverviewCard extends Component{
 	constructor(props) {
 		super(props);
 		this.state = {
-			count:'...',
+			count:'11.2 m',
+			percentege:'100%',
 			som:'',
 			checked:false,
-			radioVal:''
+			radioVal:'total pop is'
 		}
 		this.handleCheck=this.handleCheck.bind(this)
 		this.handleDetail=this.handleDetail.bind(this)
@@ -30,7 +31,7 @@ class OverviewCard extends Component{
 	handleCheck(e){
 		const val =e.currentTarget.value
 		var som = 0 /*som is a var that contains the number of population */
-
+		var per =''
 		/*'quinz' could be coming from the view to indicate the year */
 		if (val ==='both') {
 			data.map((result)=>{
@@ -39,26 +40,30 @@ class OverviewCard extends Component{
 			this.setState({
 				som:numeral(som).format('0,0')+' K',
 				count:numeral(som).format('0.0a'),
-				radioVal:'total pop is :'
+				radioVal:'total pop is :',
+				percentege:numeral(1).format('0%')
 			});
 		} else if(val ==='female'){
-			/*data.map((result)=>{
-				if (!JSON.parse(result.male)) {
-					som=JSON.parse(result.quinz)
-				}
-			})*/
-			som = data[1].quinz
+
+			som = JSON.parse(data[1].quinz);
+			per=som/(som+JSON.parse(data[0].quinz));
 			this.setState({
 				som:numeral(som).format('0,0')+" K",
 				count:numeral(som).format('0.0a'),
-				radioVal:'Females is '
+				radioVal:'Females is :',
+				percentege:numeral(per).format('0.0%')
+
+
 			});
 		}else{
-			som = data[0].quinz
+			som = JSON.parse(data[0].quinz);
+			per=som/(som+JSON.parse(data[1].quinz));
 			this.setState({
 				som:numeral(som).format('0,0')+" K",
 				count:numeral(som).format('0.0a'),
-				radioVal:'Males is'
+				radioVal:'Males is',
+				percentege:numeral(per).format('0.0%')
+
 			});
 		}
 
@@ -73,12 +78,12 @@ class OverviewCard extends Component{
 				checked={this.state.checked}
 				countD ={this.state.som}
 				radioVal={this.state.radioVal}
+				percentege={this.state.percentege}
 			/>
 			
 			{/*Checkbox for sexe*/}
 			{/*style={{dislay:'none'}}*/}
 			<div >
-			<Subheader>Sexe</Subheader>
 			
 			<RadioButtonGroup  name="questions" className='boutonRadio'
 			 onChange={this.handleCheck} >
@@ -102,6 +107,7 @@ class OverviewCard extends Component{
 			      label="details"
 			      onCheck={this.handleDetail}
 			      checked={this.state.checked}
+			      style={{marginLeft:'20px'}}
 			    />
 		    </div>
 		    <br/>
