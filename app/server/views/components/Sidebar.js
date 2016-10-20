@@ -1,5 +1,6 @@
 import React from 'react';
-import {RadioGroup, Radio} from 'react-radio-group'
+import NumberPop from './NumberPop'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 import {List, ListItem} from 'material-ui/List';
 import Subheader from 'material-ui/Subheader';
@@ -37,30 +38,28 @@ class Sidebar extends React.Component {
       
       return (
          <div>
-            <div className='col-md-12'>
-                       <div className=" col-md-4 ">
+            <div className='col-md-12' style={{width:'99%'}} >
+                       <div className=" col-md-3 ">
                               
-                            <Paper >
+                            <Paper zDepth={3} style ={{height : '500px'}} >
                               <List>
-                                <Subheader>Questions</Subheader>
-                                 <RadioButtonGroup 
-                                   name="questions" 
-                                   className='boutonRadio'
-                                   onChange={this.handleChange}
-                                 >
+                                <Subheader>Subject</Subheader>
+                                 <RadioButtonGroup name="questions" className='boutonRadio' onChange={this.handleChange}>
+                                    
                                     {resultRows}
 
                                  </RadioButtonGroup>
                               </List>  
                             </Paper>
-                        
                         </div>
+
                         
-                     <div className=" col-md-8">
-                           <div className="panel panel-default">
-                               <div className="panel-heading"><h4>hi</h4></div>
-                           </div>
-                     </div>
+                      <Paper className=" col-md-9" style={{height:'500px'}} zDepth={3}>
+                        <MuiThemeProvider>
+                          <NumberPop />
+                        </MuiThemeProvider>
+                        </Paper>
+
             </div>    
          </div>
 

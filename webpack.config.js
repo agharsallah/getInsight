@@ -1,6 +1,8 @@
     const path = require('path');
     const webpack = require('webpack');
     const notifier = require('node-notifier');
+    const ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 module.exports = {
     devtool: 'eval',
     context: __dirname,
@@ -15,6 +17,15 @@ module.exports = {
                              exclude: /node_modules/,
                             loaders: ['react-hot', 'babel']
             	   
+                        },
+
+                        {
+                            // Test expects a RegExp! Note the slashes!
+                            test: /\.css$/, 
+                            loader: ExtractTextPlugin.extract({
+                                fallbackLoader: "style-loader",
+                                loader: "css-loader",
+                            })
                         }
                         ]
     },
@@ -32,6 +43,7 @@ module.exports = {
     plugins: [
                 new webpack.optimize.OccurenceOrderPlugin(),
                 new webpack.HotModuleReplacementPlugin(),
-                new webpack.NoErrorsPlugin()
+                new webpack.NoErrorsPlugin(),
+                new ExtractTextPlugin(path.join(__dirname, 'app/public/css'))
     ]
 };

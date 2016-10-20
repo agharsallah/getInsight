@@ -7,3 +7,15 @@ body {
 .boutonRadio{
 margin-left: 10px;
 }
+.paper{
+  background-color: #D1C4E9;
+}
+.textst{
+text-align: center;
+height:100px;
+}
+.texteffect{
+  font-size: 25px;
+  margin-top: 28px;
+
+}
