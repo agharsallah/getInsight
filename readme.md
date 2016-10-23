@@ -13,12 +13,6 @@ and even if we found them we find dificulties transforming the raw data into val
 
 * use the AINSI data to see how many ppl does the  
 
-*So the MVP solution for getting votes,targeted Surveys answers is a platform where the user (premium) who needs adequate answers pay a small fee and the question will be directed to the ppl who match the user specification, the user will get real time results.
-As for the cliznts they must insert their ID to get checked and start getting 'rewarded' for getting answers
-for instance if you raise 1000 pt (10pt for answer) you will enter lottery to win smartphone recharging cards ...you will only get rewarded for the questions we send to you 
-User can also answer Questions from the the feeds page and get 1 point for an answer 
-if you write a comment answering a survey and the answer 
-
 * User (premium) won't know your credential your answer will be anonym
 
 * possibility to add infos specified to user country (got it from signup):
@@ -26,6 +20,12 @@ if you write a comment answering a survey and the answer
 -- new projects, On hold and stucked (by the municipality..) 
 -- the money provided for the city
 ...
+
+* So the MVP solution for getting votes,targeted Surveys answers is a platform where the user (premium) who needs adequate answers pay a small fee and the question will be directed to the ppl who match the user specification, the user will get real time results.
+As for the cliznts they must insert their ID to get checked and start getting 'rewarded' for getting answers
+for instance if you raise 1000 pt (10pt for answer) you will enter lottery to win smartphone recharging cards ...you will only get rewarded for the questions we send to you 
+User can also answer Questions from the the feeds page and get 1 point for an answer 
+if you write a comment answering a survey and the answer 
 
 
 
@@ -39,8 +39,9 @@ if you write a comment answering a survey and the answer
 * [EmailJS](http://github.com/eleith/emailjs) - Node.js > SMTP Server Middleware
 * [Moment.js](http://momentjs.com/) - Lightweight Date Library
 * [Twitter Bootstrap](http://twitter.github.com/bootstrap/) - UI Component & Layout Library
-*
-
+* [react](http://twitter.github.com/bootstrap/) - the view in MVC
+* [material UI](material-ui.com) - UI Components 
+* [recharts](recharts.org) - D3.js for react
 
 ##Installation & Setup
 1. Install [Node.js](https://nodejs.org/) & [MongoDB](https://www.mongodb.org/) if you haven't already.
