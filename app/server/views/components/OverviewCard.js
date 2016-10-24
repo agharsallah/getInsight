@@ -6,6 +6,7 @@ import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 import AssociatedPie from './AssociatedPie'
+import AssociatedChart from './AssociatedChart'
 var numeral = require('numeral');
 
 class OverviewCard extends Component{
@@ -33,11 +34,10 @@ class OverviewCard extends Component{
 		const val =e.currentTarget.value
 		var som = 0 /*som is a var that contains the number of population */
 		var per =''
+		const quinz="2015"
 		/*'quinz' could be coming from the view to indicate the year */
 		if (val ==='both') {
-			data.map((result)=>{
-				som+=result.quinz
-			})
+			som = data[0].female+data[0].male;
 			this.setState({
 				som:numeral(som).format('0,0')+' K',
 				count:numeral(som).format('0.0a'),
@@ -46,8 +46,8 @@ class OverviewCard extends Component{
 			});
 		} else if(val ==='female'){
 
-			som = data[1].quinz;
-			per=som/(som+data[0].quinz);
+			som = data[0].female;
+			per=som/(som+data[0].male);
 			this.setState({
 				som:numeral(som).format('0,0')+" K",
 				count:numeral(som).format('0.0a'),
@@ -56,8 +56,8 @@ class OverviewCard extends Component{
 
 			});
 		}else{
-			som = data[0].quinz;
-			per=som/(som+data[1].quinz);
+			som = data[0].male;
+			per=som/(som+data[0].female);
 			this.setState({
 				som:numeral(som).format('0,0')+" K",
 				count:numeral(som).format('0.0a'),
@@ -71,7 +71,7 @@ class OverviewCard extends Component{
 
 	render(){
 		return(
-			<div>
+			<div >
 			{/*this component shows the number|% of population */}
 			<NumberPop 
 				count={this.state.count} 
@@ -114,11 +114,16 @@ class OverviewCard extends Component{
 		    <Divider/>
 
 		{/*associated chart*/}
-		<Subheader>associated chart</Subheader>
-			<AssociatedPie data={data} ></AssociatedPie>
+		<Subheader>associated chart (2015)</Subheader>
+			<AssociatedPie data={data[4]} ></AssociatedPie>
 		<Divider/>
+		
 		{/*growth chart*/}
 		<Subheader>growth chart</Subheader>
+			<div className='contain'>
+			<AssociatedChart data={data}></AssociatedChart>
+			</div>
+
 			</div>
 		);
 	}

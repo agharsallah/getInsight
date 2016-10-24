@@ -18,8 +18,10 @@ class AssociatedPie extends Component{
 
   	}
 	render(){
-    var data = this.props.data
-        const COLORS = ['#0088FE',  '#FF8042'];
+    var data2 = this.props.data;
+    console.log(data2)
+    var data=[{name:'male',2015:data2.male},{name:'female',2015:data2.female}]
+     const COLORS = ['#0088FE',  '#FF8042'];
 const renderActiveShape = (props) => {
 
 	 const RADIAN = Math.PI / 180;
@@ -82,7 +84,7 @@ const renderActiveShape = (props) => {
           activeIndex={this.state.activeIndex}
           activeShape={renderActiveShape}
           isAnimationActive={false}
-          valueKey='quinz'
+          valueKey="2015"
         >
         	{
           	data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
