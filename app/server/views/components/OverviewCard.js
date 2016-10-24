@@ -36,7 +36,7 @@ class OverviewCard extends Component{
 		/*'quinz' could be coming from the view to indicate the year */
 		if (val ==='both') {
 			data.map((result)=>{
-				som+=JSON.parse(result.quinz)
+				som+=result.quinz
 			})
 			this.setState({
 				som:numeral(som).format('0,0')+' K',
@@ -46,19 +46,18 @@ class OverviewCard extends Component{
 			});
 		} else if(val ==='female'){
 
-			som = JSON.parse(data[1].quinz);
-			per=som/(som+JSON.parse(data[0].quinz));
+			som = data[1].quinz;
+			per=som/(som+data[0].quinz);
 			this.setState({
 				som:numeral(som).format('0,0')+" K",
 				count:numeral(som).format('0.0a'),
 				radioVal:'Females is :',
 				percentege:numeral(per).format('0.0%')
 
-
 			});
 		}else{
-			som = JSON.parse(data[0].quinz);
-			per=som/(som+JSON.parse(data[1].quinz));
+			som = data[0].quinz;
+			per=som/(som+data[1].quinz);
 			this.setState({
 				som:numeral(som).format('0,0')+" K",
 				count:numeral(som).format('0.0a'),
@@ -116,7 +115,7 @@ class OverviewCard extends Component{
 
 		{/*associated chart*/}
 		<Subheader>associated chart</Subheader>
-			<AssociatedPie></AssociatedPie>
+			<AssociatedPie data={data} ></AssociatedPie>
 		<Divider/>
 		{/*growth chart*/}
 		<Subheader>growth chart</Subheader>

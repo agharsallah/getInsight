@@ -4,12 +4,13 @@ import Paper from 'material-ui/Paper';
 class NumberPop extends Component{
 
 	render(){
-		let numberst = this.props.checked ?'col-md-5 textst':'col-md-5 textst center';
+		let numberst = 'col-md-4 textst';
+		let numberDetailst = 'col-md-4 textst';
 		let display  = this.props.checked ?'block':'none';
-		let col  = this.props.checked ?'col-md-1':'col-md-6';
+		let col  = this.props.checked ?'col-md-1':'col-md-5';
 		return(
 			<div >
-             	<div className=" col-md-1" style={{height: '150px'}}></div>
+             	<div className=" col-md-3" style={{height: '150px'}}></div>
              	
              	{/*this paper to show number*/}
 	             	<Paper 
@@ -22,7 +23,7 @@ class NumberPop extends Component{
 	             	
 	             {/*this paper to show details*/}
 	             	<Paper 
-	                   className={numberst}
+	                   className={numberDetailst}
 	                   zDepth={0}
 	                   style={{display: display,height: '150px'}}
 	                >

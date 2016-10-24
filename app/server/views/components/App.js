@@ -24,7 +24,7 @@ console.log( data)
          		  </div> 
          		
          		{/*right part*/}
-         		<Paper className=" col-md-9" style={{height:'500px'}} zDepth={3}>
+         		<Paper className=" col-md-9" style={{height:'auto'}} zDepth={3}>
                     <OverviewCard />
                 </Paper>
 

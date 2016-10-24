@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
 import  { PieChart, Pie, Sector, Cell } from 'Recharts'
+var numeral = require('numeral');
 
 class AssociatedPie extends Component{
 	constructor(props) {
@@ -17,8 +18,7 @@ class AssociatedPie extends Component{
 
   	}
 	render(){
-		const data = [{name: 'Group A', value: 400}, {name: 'Group B', value: 300},
-                  {name: 'Group C', value: 300}, {name: 'Group D', value: 200}];
+    var data = this.props.data
         const COLORS = ['#0088FE',  '#FF8042'];
 const renderActiveShape = (props) => {
 
@@ -34,7 +34,8 @@ const renderActiveShape = (props) => {
   const ex = mx + (cos >= 0 ? 1 : -1) * 22;
   const ey = my;
   const textAnchor = cos >= 0 ? 'start' : 'end';
-
+  /*evaluated value to a specefic format than send it to sector  */
+  const val =numeral(value).format('0,0')+" K"
   return (
     <g>
       <text x={cx} y={cy} dy={8} textAnchor="middle" fill={fill}>{payload.name}</text>
@@ -58,7 +59,9 @@ const renderActiveShape = (props) => {
       />
       <path d={`M${sx},${sy}L${mx},${my}L${ex},${ey}`} stroke={fill} fill="none"/>
       <circle cx={ex} cy={ey} r={2} fill={fill} stroke="none"/>
-      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333">{`PV ${value}`}</text>
+      <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} textAnchor={textAnchor} fill="#333">
+        {val}
+      </text>
       <text x={ex + (cos >= 0 ? 1 : -1) * 12} y={ey} dy={18} textAnchor={textAnchor} fill="#999">
         {`(Rate ${(percent * 100).toFixed(2)}%)`}
       </text>
@@ -67,11 +70,11 @@ const renderActiveShape = (props) => {
 }
 		return(
 			<div>
-			<PieChart width={800} height={400}  onMouseEnter={this.onPieEnter}>
+			<PieChart width={800} height={300}  onMouseEnter={this.onPieEnter}>
         <Pie
           data={data} 
           cx={400} 
-          cy={100} 
+          cy={150} 
           labelLine={false}
           innerRadius={70}
           outerRadius={90} 
@@ -79,6 +82,7 @@ const renderActiveShape = (props) => {
           activeIndex={this.state.activeIndex}
           activeShape={renderActiveShape}
           isAnimationActive={false}
+          valueKey='quinz'
         >
         	{
           	data.map((entry, index) => <Cell fill={COLORS[index % COLORS.length]}/>)
