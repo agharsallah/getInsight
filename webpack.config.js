@@ -25,8 +25,9 @@ module.exports = {
     output: {
                 path: __dirname + 'app/public',
                 publicPath: '/',
-                filename: 'js/gulp/reactx.js'
-    },
+                filename: 'js/gulp/surveyx.js'
+/*                filename: 'js/gulp/reactx.js'
+*/    },
     
     plugins: [
                 new webpack.optimize.OccurenceOrderPlugin(),

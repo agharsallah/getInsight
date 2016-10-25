@@ -13,7 +13,8 @@ module.exports = function(app) {
 		}	else{
 	// attempt automatic login //
 			AM.autoLogin(req.cookies.user, req.cookies.pass, function(o){
-				if ((o !== null)&&(o.status==="simple")){
+				console.log(o)
+				if ((o !== null)&&(o.user.status==="simple")){
 				    req.session.user = o;
 					res.redirect('/home');
 				}	else if ((o !== null)&&(o.status==="admin")){
@@ -45,7 +46,7 @@ module.exports = function(app) {
 		if (req.session.user == null){
 	// if user is not logged-in redirect back to login page //
 			res.redirect('/');
-		}	else if ((req.session.user !== null)&&(req.session.status === 'simple')) {
+		}	else if ((req.session.user !== null)&&(req.session.user.status === 'simple')) {
 			console.log(req.session.status)
 			res.render('home', {
 				title : 'Get-Insight',
@@ -121,10 +122,11 @@ module.exports = function(app) {
 		}
 	});
 
-	app.post('/logout', function(req, res){
+	app.get('/logout', function(req, res){
 		res.clearCookie('user');
 		res.clearCookie('pass');
-		req.session.destroy(function(e){ res.status(200).send('ok'); });
+		req.session.destroy();
+		res.redirect('/');
 	})
 	
 // creating new accounts //
