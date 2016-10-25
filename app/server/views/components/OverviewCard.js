@@ -81,7 +81,7 @@ class OverviewCard extends Component{
 				percentege={this.state.percentege}
 			/>
 			
-			{/*Checkbox for sexe*/}
+			{/*Checkbox for population sexe*/}
 			{/*style={{dislay:'none'}}*/}
 			<div >
 			

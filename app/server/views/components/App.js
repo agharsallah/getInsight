@@ -1,6 +1,6 @@
 import React from 'react';
 import data from './question.js'
-import OverviewCard from './OverviewCard';
+import Card from './Card';
 import Sidebar from './Sidebar'
 import Paper from 'material-ui/Paper';
 
@@ -11,8 +11,22 @@ injectTapEventPlugin();
 
 	
 class App extends React.Component {
+  constructor(props) {
+    super(props);
+    
+    this.state={
+      selectedSide:''
+    };
+
+  }
+      sideChange(clicked){
+          this.setState({
+            selectedSide:clicked
+          });
+      }
+
    render() {
-console.log( data)
+    const sideChange = (clicked)=>{this.sideChange(clicked)}
       return (
          <div>
          	<MuiThemeProvider>
@@ -20,12 +34,12 @@ console.log( data)
                   
                   {/*sidebar*/}
                   <div className=" col-md-3" >
-         			<Sidebar questions={data.question} />
+         			<Sidebar questions={data.question} onSideChange={sideChange}/>
          		  </div> 
          		
-         		{/*right part*/}
+         		{/*right part now became container to diffrent subject*/}
          		<Paper className=" col-md-9" style={{height:'auto'}} zDepth={3}>
-                    <OverviewCard />
+                    <Card selectedIs={this.state.selectedSide} />
                 </Paper>
 
          		</div>

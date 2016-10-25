@@ -9,17 +9,13 @@ import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
 class Sidebar extends React.Component {
    constructor(props) {
       super(props);
-      this.state={
-         selectedValue : ''
-         };
          this.handleChange=this.handleChange.bind(this)
    }
    
    handleChange(e){
-      console.log('changed')
-      this.setState({
-         selectedValue:e.currentTarget.value
-      });
+    /*so when change happens on the radio boxes I send the
+     value to the function that I get as a prop from App.js through param*/
+      this.props.onSideChange(e.currentTarget.value)
    }
    render() {
        var resultRows = this.props.questions.map(function(result){
