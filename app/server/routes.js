@@ -57,6 +57,7 @@ module.exports = function(app) {
 				title : 'Get-Insight',
 				countries : CT,
 				udata : req.session.user,
+				activeHome:'active',activeSurvey:''
 			});
 		}
 	});
@@ -71,6 +72,7 @@ module.exports = function(app) {
 				title : 'Get-Insight',
 				countries : CT,
 				udata : req.session.user,
+				activeHome:'',activeSurvey:'active'
 			});
 		}else {
 			res.render('404', { title: 'Page Not Found'});

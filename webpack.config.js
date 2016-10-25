@@ -5,7 +5,8 @@
 module.exports = {
     entry:  [
                 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
-                './app/server/views/components/Index.js'
+                /*'./app/server/views/components/Index.js'*/
+                './app/server/views/componentSurvey/Index.js'
             ],
     
     module: {

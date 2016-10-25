@@ -11,11 +11,11 @@ nav.navbar.navbar-default
     // Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav
-        li#activeHome
+        li(class= activeHome)
           a(href='/home')
             | Home 
             span.sr-only (current)
-        li#createSurvey
+        li(class= activeSurvey)
           a(href='/createSurvey')
             | Survey 
             span.sr-only (current)
