@@ -51,7 +51,7 @@ class OverviewCard extends Component{
 			this.setState({
 				som:numeral(som).format('0,0')+" K",
 				count:numeral(som).format('0.0a'),
-				radioVal:'Females is :',
+				radioVal:'Female is :',
 				percentege:numeral(per).format('0.0%')
 
 			});
@@ -61,7 +61,7 @@ class OverviewCard extends Component{
 			this.setState({
 				som:numeral(som).format('0,0')+" K",
 				count:numeral(som).format('0.0a'),
-				radioVal:'Males is',
+				radioVal:'Male is',
 				percentege:numeral(per).format('0.0%')
 
 			});
@@ -85,7 +85,10 @@ class OverviewCard extends Component{
 			{/*style={{dislay:'none'}}*/}
 			<div >
 			
-			<RadioButtonGroup  name="questions" className='boutonRadio'
+			<RadioButtonGroup 
+			defaultSelected='both' 
+			name="questions" 
+			className='boutonRadio'
 			 onChange={this.handleCheck} >
 			<RadioButton
 		      label="Female"

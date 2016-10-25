@@ -33,3 +33,16 @@ height:100px;
   width: 80%;
   height: 300px;
 }
+
+/* title for each card .js */
+.title {
+ color: #333333;
+  font-family: 'Bitter', serif;
+   font-size: 50px;
+    font-weight: normal;
+     line-height: 54px;
+    margin-top: 25px;
+    margin-left: 25%;
+    margin-bottom: 25px;
+    }
+
