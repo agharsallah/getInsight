@@ -13,10 +13,13 @@ module.exports = function(app) {
 		}	else{
 	// attempt automatic login //
 			AM.autoLogin(req.cookies.user, req.cookies.pass, function(o){
-				if (o != null){
+				if ((o != null)&&(o.status==="simple")){
 				    req.session.user = o;
 					res.redirect('/home');
-				}	else{
+				}	else if ((o != null)&&(o.status==="admin")){
+				    req.session.user = o;
+					res.redirect('/homeAdmin');
+				}else {
 					res.render('login', { title: 'Hello - Please Login To Your Account' });
 				}
 			});
@@ -42,8 +45,15 @@ module.exports = function(app) {
 		if (req.session.user == null){
 	// if user is not logged-in redirect back to login page //
 			res.redirect('/');
-		}	else{
+		}	else if ((req.session.user == null)&&(req.session.status === 'simple')) {
+			console.log(req.session.status)
 			res.render('home', {
+				title : 'Get-Insight',
+				countries : CT,
+				udata : req.session.user,
+			});
+		} else {
+			res.render('homeAdmin', {
 				title : 'Get-Insight',
 				countries : CT,
 				udata : req.session.user,
@@ -112,7 +122,31 @@ module.exports = function(app) {
 			email 	: req.body['email'],
 			user 	: req.body['user'],
 			pass	: req.body['pass'],
-			country : req.body['country']
+			country : req.body['country'],
+			status 	: 'simple'
+		}, function(e){
+			if (e){
+				res.status(400).send(e);
+			}	else{
+				res.status(200).send('ok');
+			}
+		});
+	});
+
+/*signup Admin*/
+
+	app.get('/signupAdmin', function(req, res) {
+		res.render('signupAdmin', {  title: 'Signup', countries : CT });
+	});
+	
+	app.post('/signupAdmin', function(req, res){
+		AM.addNewAccount({
+			name 	: req.body['name'],
+			email 	: req.body['email'],
+			user 	: req.body['user'],
+			pass	: req.body['pass'],
+			country : req.body['country'],
+			status 	: 'admin'
 		}, function(e){
 			if (e){
 				res.status(400).send(e);

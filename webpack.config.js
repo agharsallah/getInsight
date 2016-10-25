@@ -3,8 +3,6 @@
     const notifier = require('node-notifier');
 
 module.exports = {
-    devtool: 'eval',
-    context: __dirname,
     entry:  [
                 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
                 './app/server/views/components/Index.js'
