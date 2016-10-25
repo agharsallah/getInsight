@@ -13,10 +13,10 @@ module.exports = function(app) {
 		}	else{
 	// attempt automatic login //
 			AM.autoLogin(req.cookies.user, req.cookies.pass, function(o){
-				if ((o != null)&&(o.status==="simple")){
+				if ((o !== null)&&(o.status==="simple")){
 				    req.session.user = o;
 					res.redirect('/home');
-				}	else if ((o != null)&&(o.status==="admin")){
+				}	else if ((o !== null)&&(o.status==="admin")){
 				    req.session.user = o;
 					res.redirect('/homeAdmin');
 				}else {
@@ -45,7 +45,7 @@ module.exports = function(app) {
 		if (req.session.user == null){
 	// if user is not logged-in redirect back to login page //
 			res.redirect('/');
-		}	else if ((req.session.user == null)&&(req.session.status === 'simple')) {
+		}	else if ((req.session.user !== null)&&(req.session.status === 'simple')) {
 			console.log(req.session.status)
 			res.render('home', {
 				title : 'Get-Insight',
@@ -61,7 +61,22 @@ module.exports = function(app) {
 		}
 	});
 	
+/*survey creation for admin*/
+	app.get('/createSurvey',(req, res) => {
+		if (req.session.user == null){
+	// if user is not logged-in redirect back to login page //
+			res.redirect('/');
+		}	else if ((req.session.user !== null)&&(req.session.user.status === "admin")) {
+				res.render('surveyAdmin',{
+				title : 'Get-Insight',
+				countries : CT,
+				udata : req.session.user,
+			});
+		}else {
+			res.render('404', { title: 'Page Not Found'});
+		}
 
+	})
 
 // logged-in user profile //
 	
