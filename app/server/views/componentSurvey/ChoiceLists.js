@@ -12,7 +12,8 @@ class ChoiceLists extends React.Component{
 	constructor(props) {
 		super(props);
 		this.state={
-			questionNum:0
+			questionNum:0,
+			name:''
 		}
 		this.handleDeleteQuestion= this.handleDeleteQuestion.bind(this);
 		this.handleAddQuestion= this.handleAddQuestion.bind(this);
@@ -26,8 +27,11 @@ class ChoiceLists extends React.Component{
 	this.state.questionNum > 0 ? this.setState({questionNum:this.state.questionNum - 1}):console.log('add Row first');
 	}
 
+	name = (e) => this.setState({name:e.target.value});
+
 	handleSubmitSurvey(){
 	}
+
 	render(){
 		var rows = []
 		for (var i = 0; i < this.state.questionNum; i++) {
@@ -42,6 +46,7 @@ class ChoiceLists extends React.Component{
 					<TextField
      				 hintText="Title"
      				 fullWidth={true}
+     				 onChange={this.name}
     				/>	
 					</div>
 						{rows}	

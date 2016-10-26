@@ -12,12 +12,15 @@ class ChoiceList extends React.Component{
 	constructor(props) {
 		super(props);
 		this.state={
-			optionNum:0
+			optionNum:0,
+			question:'what?',
+			checkOrRadio:'check'
 		}
 		this.handleAddOption= this.handleAddOption.bind(this);
 		this.handleDeleteOption= this.handleDeleteOption.bind(this);
 
 	}
+
 	handleAddOption(){
 		this.setState({optionNum:this.state.optionNum + 1});
 	}
@@ -25,6 +28,10 @@ class ChoiceList extends React.Component{
 	handleDeleteOption(){
 	this.state.optionNum > 0 ? this.setState({optionNum:this.state.optionNum - 1}):console.log('add Row first');
 	}
+
+	question = (e) => this.setState({question:e.target.value});
+	handleChange = (e) => this.setState({checkOrRadio:e.currentTarget.value});
+
 	render(){
 		var rows = []
 		for (var i = 0; i < this.state.optionNum; i++) {
@@ -36,6 +43,7 @@ class ChoiceList extends React.Component{
 						<h4>Now what's your question </h4>
 						<TextField
 	     				 hintText="Question ?"
+		        		 onChange={this.question}
 	     				 fullWidth={true}
 	    				/>	
 					</div>
@@ -43,7 +51,11 @@ class ChoiceList extends React.Component{
 					{/*to choose whether survey you want with one or many responses*/}
 					<div className='choicelist'>
 					<h4>Choice List method</h4>
-					 <RadioButtonGroup name="selection">
+					 <RadioButtonGroup 
+					  	name="selection"
+					  	onChange={this.handleChange} 
+
+					  >
 					      <RadioButton
 					      	style={{marginTop:'11px'}}
 					      	labelStyle={{fontSize:'15px'}}
