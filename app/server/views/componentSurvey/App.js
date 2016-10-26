@@ -1,4 +1,6 @@
 import React from 'react';
+import ChoiceLists from './ChoiceLists'
+
 import Paper from 'material-ui/Paper';
 
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -16,8 +18,9 @@ class App extends React.Component {
    render() {
       return (
          <div>
-         <p>  Hi survey</p>
-
+          <MuiThemeProvider>
+            <ChoiceLists/>
+          </MuiThemeProvider>
          </div>
       );
    }

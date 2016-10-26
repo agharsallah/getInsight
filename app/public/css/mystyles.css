@@ -46,3 +46,7 @@ height:100px;
     margin-bottom: 25px;
     }
 
+/* for the choicelist divs each div contain an input */
+.choicelist{
+  margin-top:16px; 
+}
