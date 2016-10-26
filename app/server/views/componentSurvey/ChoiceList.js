@@ -81,6 +81,7 @@ class ChoiceList extends React.Component{
 						 onTouchTap={this.handleDeleteOption}
 						/>
 					</div>
+					<br/><br/>
 			</div>
 		);
 	}

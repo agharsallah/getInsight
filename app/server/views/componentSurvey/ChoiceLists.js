@@ -12,28 +12,31 @@ class ChoiceLists extends React.Component{
 	constructor(props) {
 		super(props);
 		this.state={
-			optionNum:0
+			questionNum:0
 		}
-		this.handleAddOption= this.handleAddOption.bind(this);
-		this.handleDeleteOption= this.handleDeleteOption.bind(this);
+		this.handleDeleteQuestion= this.handleDeleteQuestion.bind(this);
+		this.handleAddQuestion= this.handleAddQuestion.bind(this);
+		this.handleSubmitSurvey= this.handleSubmitSurvey.bind(this);
 
 	}
-	handleAddOption(){
-		this.setState({optionNum:this.state.optionNum + 1});
+	handleAddQuestion(){
+		this.setState({questionNum:this.state.questionNum + 1});
+	}
+	handleDeleteQuestion(){
+	this.state.questionNum > 0 ? this.setState({questionNum:this.state.questionNum - 1}):console.log('add Row first');
 	}
 
-	handleDeleteOption(){
-	this.state.optionNum > 0 ? this.setState({optionNum:this.state.optionNum - 1}):console.log('add Row first');
+	handleSubmitSurvey(){
 	}
 	render(){
 		var rows = []
-		for (var i = 0; i < this.state.optionNum; i++) {
-			rows.push(<Option key={i} numberOp={i+3}/>)
+		for (var i = 0; i < this.state.questionNum; i++) {
+			rows.push(<ChoiceList key={i} numberOp={i+1}/>)
 		}
 		return(
 			<div>
 				<div className='col-md-2'></div>
-				<Paper className='col-md-8' style={{height:'800px'}} >
+				<Paper className='col-md-8' style={{height:'auto'}} >
 					<div className='choicelist'>
 					<h4>Choose the name of the survey</h4>
 					<TextField
@@ -41,8 +44,34 @@ class ChoiceLists extends React.Component{
      				 fullWidth={true}
     				/>	
 					</div>
-						<ChoiceList/>			
-					
+						{rows}	
+
+					<div className='choicelist'>
+						{/*to add another Question button*/}
+						<RaisedButton 
+						 style={{marginLeft:'8%'}}
+						 label="Add another Question"
+						 onTouchTap={this.handleAddQuestion}
+						 backgroundColor="#D500F9"
+						/>
+						
+						{/*to delete another option button*/}
+						<RaisedButton
+						 style={{marginLeft:'8%'}}
+						 label="Delete Last Question"
+						 onTouchTap={this.handleDeleteQuestion}
+						 backgroundColor="#FF1744"
+						/>
+
+						{/*to submit survey*/}
+						<RaisedButton
+						 style={{marginLeft:'8%'}}
+						 label="Submit Survey"
+						 onTouchTap={this.handleDeleteQuestion}
+						 backgroundColor="#76FF03"
+						/>
+					</div>		
+					<br/><br/>
 				</Paper>
 				<div className='col-md-2'></div>
 
