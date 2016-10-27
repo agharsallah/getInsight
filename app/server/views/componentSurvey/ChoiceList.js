@@ -26,14 +26,20 @@ class ChoiceList extends React.Component{
 		//if submit button is clicked then send thee data to server
 		console.log('here')
 		var formedSurvey={
-			surveyname:this.props.surveyname,
+			surveyName:this.props.surveyname,
 			question:this.state.question,
 			checkOrRadio:this.state.checkOrRadio,
 			options:this.state.optionTab
 		}
 		console.log(formedSurvey)
 		if (this.props.clickedSubmit) {
+				$.ajax({
+			      url: '/createSurvey',
+			      dataType: 'json',
+			      type: 'POST',
+			      data: formedSurvey
 
+			    });	
 		}
 	}
 	/*this getOptions is passed to Options Component as prop to get the option*/

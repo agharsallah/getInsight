@@ -31,6 +31,7 @@ class ChoiceLists extends React.Component{
 	name = (e) => this.setState({name:e.target.value});
 
 	handleSubmitSurvey(){
+		console.log('submit')
 		this.setState({
 			submit:true
 		});
@@ -81,7 +82,7 @@ class ChoiceLists extends React.Component{
 						<RaisedButton
 						 style={{marginLeft:'8%'}}
 						 label="Submit Survey"
-						 onTouchTap={this.handleSubmitQuestion}
+						 onTouchTap={this.handleSubmitSurvey}
 						 backgroundColor="#76FF03"
 						/>
 					</div>		

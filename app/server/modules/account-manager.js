@@ -211,3 +211,17 @@ var findByMultipleFields = function(a, callback)
 		else callback(null, results)
 	});
 }
+
+/*Survey.js ---------------------------------------------------------Exports the survey manager*/
+
+var survey = db.collection('survey');
+
+exports.addNewSurvey = function(newData, callback)
+{
+	survey.insert(newData, {safe: true}, callback);
+
+}
+
+
+
+

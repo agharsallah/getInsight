@@ -81,6 +81,28 @@ module.exports = function(app) {
 
 	})
 
+		app.post('/createSurvey', function(req, res){
+		if (req.session.user == null){
+			res.redirect('/');
+		}	else if ((req.session.user !== null)&&(req.session.user.status === "admin")) {
+			AM.addNewSurvey({
+				user			:req.session.user._id,
+				surveyName 		: req.body['surveyName'],
+				question 		: req.body['question'],
+				checkOrRadio 	: req.body['checkOrRadio'],
+				options			: req.body['options']
+			}, function(e){
+				if (e){
+					res.status(400).send(e);
+				}	else{
+					res.status(200).send('ok');
+				}
+			});
+
+		}else {
+			res.render('404', { title: 'Page Not Found'});
+		}
+	});
 // logged-in user profile //
 	
 	app.get('/profile', function(req, res) {
