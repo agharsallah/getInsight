@@ -1,4 +1,4 @@
-/*this component will let us build a one choice list field*/
+/*this component holds all the choicelists*/
 import React from 'react';
 import Paper from 'material-ui/Paper';
 import TextField from 'material-ui/TextField';
@@ -13,7 +13,8 @@ class ChoiceLists extends React.Component{
 		super(props);
 		this.state={
 			questionNum:0,
-			name:''
+			name:'',
+			submit:false
 		}
 		this.handleDeleteQuestion= this.handleDeleteQuestion.bind(this);
 		this.handleAddQuestion= this.handleAddQuestion.bind(this);
@@ -30,12 +31,19 @@ class ChoiceLists extends React.Component{
 	name = (e) => this.setState({name:e.target.value});
 
 	handleSubmitSurvey(){
+		this.setState({
+			submit:true
+		});
 	}
 
 	render(){
 		var rows = []
 		for (var i = 0; i < this.state.questionNum; i++) {
-			rows.push(<ChoiceList key={i} numberOp={i+1}/>)
+			rows.push(<ChoiceList 
+				key={i} 
+				numberOp={i+1} 
+				surveyname={this.state.name} 
+				clickedSubmit={this.state.submit}/>)
 		}
 		return(
 			<div>
@@ -49,6 +57,7 @@ class ChoiceLists extends React.Component{
      				 onChange={this.name}
     				/>	
 					</div>
+						
 						{rows}	
 
 					<div className='choicelist'>
@@ -72,7 +81,7 @@ class ChoiceLists extends React.Component{
 						<RaisedButton
 						 style={{marginLeft:'8%'}}
 						 label="Submit Survey"
-						 onTouchTap={this.handleDeleteQuestion}
+						 onTouchTap={this.handleSubmitQuestion}
 						 backgroundColor="#76FF03"
 						/>
 					</div>		
