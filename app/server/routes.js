@@ -1,6 +1,6 @@
 
 var CT = require('./modules/country-list');
-var AM = require('./modules/account-manager');
+var AM = require('./modules/db-manager');
 var EM = require('./modules/email-dispatcher');
 
 module.exports = function(app) {

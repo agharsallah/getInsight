@@ -9,6 +9,9 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 class Survey extends React.Component{
 	constructor(props) {
 		super(props);
+		this.state={
+			AllSurveys:[]
+		}
 		this.socket = io();
 	}
 	    componentWillMount() {
@@ -27,7 +30,7 @@ class Survey extends React.Component{
 	render(){
 		return(
 			<MuiThemeProvider>
-			<ManyServeys/>
+			<ManyServeys AllSurveys={this.state.AllSurveys}/>
          	</MuiThemeProvider>
 
 		);

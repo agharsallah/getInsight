@@ -222,6 +222,15 @@ exports.addNewSurvey = function(newData, callback)
 
 }
 
+exports.getAllSurveys = function(callback)
+{
+	survey.find().toArray(
+		function(e, res) {
+		if (e) callback(e)
+		else callback(null, res)
+	});
+}
+
 
 
 

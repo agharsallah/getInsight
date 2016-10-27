@@ -14,6 +14,7 @@ var cookieParser = require('cookie-parser');
 var MongoStore = require('connect-mongo')(session);
 var socketio = require('socket.io');
 var io;
+const DB = require('./app/server/modules/db-manager');
 
 var app = express();
 
@@ -70,8 +71,14 @@ app.use(session({
 var server = http.createServer(app).listen(app.get('port'),'localhost' );
 var io = require("socket.io").listen(server);
 
-
 require('./app/server/routes')(app);
-  io.sockets.on('connection', function(socket){
-  	console.log('conn')
-});
+ /*--------------------------------------------------------socket part----------------------*/
+  	
+  	io.sockets.on('connection', function(socket){
+
+  		
+  		DB.getAllSurveys(function(e, surveys){
+     		socket.emit('AllSurveys', surveys);
+    	});
+
+	});
