@@ -12,6 +12,8 @@ var bodyParser = require('body-parser');
 var errorHandler = require('errorhandler');
 var cookieParser = require('cookie-parser');
 var MongoStore = require('connect-mongo')(session);
+var socketio = require('socket.io');
+var io;
 
 var app = express();
 
@@ -65,9 +67,11 @@ app.use(session({
 	store: new MongoStore({ url: dbURL })
 	})
 );
+var server = http.createServer(app).listen(app.get('port'),'localhost' );
+var io = require("socket.io").listen(server);
+
 
 require('./app/server/routes')(app);
-
-http.createServer(app).listen(app.get('port'), function(){
-	console.log('Express server listening on port ' + app.get('port'));
+  io.sockets.on('connection', function(socket){
+  	console.log('conn')
 });

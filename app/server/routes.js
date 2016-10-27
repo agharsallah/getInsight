@@ -47,11 +47,11 @@ module.exports = function(app) {
 	// if user is not logged-in redirect back to login page //
 			res.redirect('/');
 		}	else if ((req.session.user !== null)&&(req.session.user.status === 'simple')) {
-			console.log(req.session.status)
 			res.render('home', {
 				title : 'Get-Insight',
 				countries : CT,
 				udata : req.session.user,
+				activeHome:'active',activeSurvey:''
 			});
 		} else {
 			res.render('homeAdmin', {
@@ -63,6 +63,24 @@ module.exports = function(app) {
 		}
 	});
 	
+/*survey creation for User*/
+	app.get('/checkSurvey',(req, res) => {
+		if (req.session.user == null){
+	// if user is not logged-in redirect back to login page //
+			res.redirect('/');
+		}	else if ((req.session.user !== null)&&(req.session.user.status === "simple")) {
+				res.render('home',{
+				title : 'Get-Insight',
+				countries : CT,
+				udata : req.session.user,
+				activeHome:'',activeSurvey:'active'
+			});
+		}else {
+			res.render('404', { title: 'Page Not Found'});
+		}
+
+	})
+
 /*survey creation for admin*/
 	app.get('/createSurvey',(req, res) => {
 		if (req.session.user == null){
@@ -86,7 +104,8 @@ module.exports = function(app) {
 			res.redirect('/');
 		}	else if ((req.session.user !== null)&&(req.session.user.status === "admin")) {
 			AM.addNewSurvey({
-				user			:req.session.user._id,
+				userId			:req.session.user._id,
+				userName		:req.session.user.name,
 				surveyName 		: req.body['surveyName'],
 				question 		: req.body['question'],
 				checkOrRadio 	: req.body['checkOrRadio'],

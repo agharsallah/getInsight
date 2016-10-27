@@ -11,15 +11,18 @@ nav.navbar.navbar-default
     // Collect the nav links, forms, and other content for toggling
     #bs-example-navbar-collapse-1.collapse.navbar-collapse
       ul.nav.navbar-nav
-        li#activeHome
+        li(class= activeHome)
           a(href='/home')
             | Home 
             span.sr-only (current)
+        li(class= activeSurvey)
+          a(href='/checkSurvey')
+            | Survey 
+            span.sr-only (current)
       ul.nav.navbar-nav.navbar-right
-        
         li#activeProfile
           a(href='/profile') Profile
         li
-          a(href='/logout')#btn-logout Sign Out
+          a#btn-logout(href='/logout') Sign Out
     // /.navbar-collapse
   // /.container-fluid
