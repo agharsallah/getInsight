@@ -1,14 +1,33 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
+import {TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
+import RaisedButton from 'material-ui/RaisedButton';
+import {pink500,purple500,blue500} from 'material-ui/styles/colors';
+import { Link } from 'react-router';
 
 class OneSurvey extends React.Component{
 	render(){
-		const survey = this.props.survey
+		const {survey,...otherProps} = this.props;
+		const linko = '/answer/'+survey._id;
 
 		return(
-				<div className="col-md-8">
-				<p>{survey.surveyName}</p>
-				</div>
+
+				<TableRow { ...otherProps } >	
+		{otherProps.children[0] /* checkbox passed down from Table-Body*/}
+
+ 	      	<TableRowColumn style={{fontSize:'15px'}}>{survey.surveyName}</TableRowColumn>
+ 	      	<TableRowColumn style={{fontSize:'15px'}}>{survey.userName}</TableRowColumn>
+ 	      	
+ 	      	<TableRowColumn style={{paddingLeft:'5px'}}>
+ 	      		<RaisedButton 
+ 	      				label="Answer" 
+						labelStyle={{color:'white'}} 
+ 	      				backgroundColor={blue500}
+ 	      				containerElement={<Link to={linko}/>}
+
+ 	      		/>
+ 	      	</TableRowColumn>
+ 	    </TableRow>
 		);
 	}
 };

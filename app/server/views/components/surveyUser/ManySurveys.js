@@ -1,6 +1,7 @@
 import React from 'react';
 import Paper from 'material-ui/Paper';
 import OneSurvey from './OneSurvey'
+import {Table, TableBody, TableHeader, TableHeaderColumn, TableRow, TableRowColumn} from 'material-ui/Table';
 
 class ManySurveys extends React.Component{
 	render(){
@@ -10,11 +11,26 @@ class ManySurveys extends React.Component{
 	      	);
   		});
 		return(
-			<div>
-				<div className="col-md-2"></div>
-				{surveyItem}
-				<div className="col-md-2"></div>
-			</div>
+		<Table multiSelectable={false} >
+
+		    <TableHeader adjustForCheckbox={false} displaySelectAll={false}>
+		      
+		      <TableRow striped={false} >
+		        <TableHeaderColumn >Survey Name			</TableHeaderColumn>
+		        <TableHeaderColumn >Created by		</TableHeaderColumn>
+		        <TableHeaderColumn >Action		</TableHeaderColumn>
+		        
+		      </TableRow>
+		    </TableHeader>
+		    
+		    <TableBody displayRowCheckbox={false} stripedRows={false} showRowHover={true}>
+
+			{surveyItem}
+
+		    </TableBody>
+	  </Table>
+				
+
 		);
 	}
 };
