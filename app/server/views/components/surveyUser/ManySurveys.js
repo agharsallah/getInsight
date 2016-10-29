@@ -7,7 +7,7 @@ class ManySurveys extends React.Component{
 	render(){
 		var surveyItem = this.props.AllSurveys.map((survey)=>{
 	      	return (
-	          <OneSurvey key={survey._id}  survey={survey} />
+	          <OneSurvey key={survey._id}  survey={survey}  />
 	      	);
   		});
 		return(

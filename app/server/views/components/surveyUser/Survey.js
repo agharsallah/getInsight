@@ -30,7 +30,7 @@ class Survey extends React.Component{
 	render(){
 		return(
 			<MuiThemeProvider>
-			<ManyServeys AllSurveys={this.state.AllSurveys}/>
+			<ManyServeys AllSurveys={this.state.AllSurveys} />
          	</MuiThemeProvider>
 
 		);

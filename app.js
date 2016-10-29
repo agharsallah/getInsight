@@ -81,4 +81,12 @@ require('./app/server/routes')(app);
      		socket.emit('AllSurveys', surveys);
     	});
 
+
+      socket.on('surveyToAnswerId',function(surveyId){
+        DB.getSurveyToAnswer(surveyId,function(e, surveyPart){
+        socket.emit('surveyParts', surveyPart);
+      });
+      })
+
+
 	});

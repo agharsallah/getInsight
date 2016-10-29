@@ -231,6 +231,19 @@ exports.getAllSurveys = function(callback)
 	});
 }
 
+/*get the survey parts user is gone answer*/
+
+exports.getSurveyToAnswer = function(surveyId,callback)
+{
+	var {ObjectId} = require('mongodb'); //like ObjectId=require('mongodb').ObjectId;
+	var ido = new ObjectId(surveyId); // convert document's _id from string to ObjectId
+
+	survey.find({_id:ido}).toArray(
+		function(e, res) {
+		if (e) callback(e)
+		else callback(null, res)
+	});
+}
 
 
 
