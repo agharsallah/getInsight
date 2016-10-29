@@ -15,10 +15,11 @@ class OneSurvey extends React.Component{
 				<TableRow { ...otherProps } >	
 		{otherProps.children[0] /* checkbox passed down from Table-Body*/}
 
- 	      	<TableRowColumn style={{fontSize:'15px'}}>{survey.surveyName}</TableRowColumn>
- 	      	<TableRowColumn style={{fontSize:'15px'}}>{survey.userName}</TableRowColumn>
- 	      	
- 	      	<TableRowColumn style={{paddingLeft:'5px'}}>
+ 	      	<TableRowColumn style={{textAlign:'center',fontSize:'15px'}}>{survey.surveyName}</TableRowColumn>
+ 	      	<TableRowColumn style={{textAlign:'center',fontSize:'15px'}}>{survey.userName}</TableRowColumn>
+ 	      	<TableRowColumn style={{textAlign:'center',fontSize:'15px'}}>20 pt</TableRowColumn>
+
+ 	      	<TableRowColumn style={{textAlign:'center'}}>
  	      		<RaisedButton 
  	      				label="Answer" 
 						labelStyle={{color:'white'}} 

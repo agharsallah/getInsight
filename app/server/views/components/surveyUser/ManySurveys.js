@@ -11,15 +11,16 @@ class ManySurveys extends React.Component{
 	      	);
   		});
 		return(
+			<div>
 		<Table multiSelectable={false} >
 
 		    <TableHeader adjustForCheckbox={false} displaySelectAll={false}>
 		      
 		      <TableRow striped={false} >
-		        <TableHeaderColumn >Survey Name			</TableHeaderColumn>
-		        <TableHeaderColumn >Created by		</TableHeaderColumn>
-		        <TableHeaderColumn >Action		</TableHeaderColumn>
-		        
+		        <TableHeaderColumn style={{textAlign:'center',fontSize:'15px'}}>Survey Name			</TableHeaderColumn>
+		        <TableHeaderColumn style={{textAlign:'center',fontSize:'15px'}}>Created by		</TableHeaderColumn>
+		        <TableHeaderColumn style={{textAlign:'center',fontSize:'15px'}}>points		</TableHeaderColumn>
+		        <TableHeaderColumn style={{textAlign:'center',fontSize:'15px'}}>Action		</TableHeaderColumn>
 		      </TableRow>
 		    </TableHeader>
 		    
@@ -29,7 +30,9 @@ class ManySurveys extends React.Component{
 
 		    </TableBody>
 	  </Table>
-				
+	  			
+
+			</div>	
 
 		);
 	}
