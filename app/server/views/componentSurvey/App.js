@@ -1,7 +1,7 @@
 
 import React from 'react';
 import data from './merged/question.js'
-import Card from './merged/Card';
+import OverviewCard from './merged/OverviewCard';
 import Sidebar from './merged/Sidebar'
 import Paper from 'material-ui/Paper';
 
@@ -16,31 +16,34 @@ class App extends React.Component {
     super(props);
     
     this.state={
-      selectedSide:'Population Overview'
+      selectedSide:'Population Overview',
+      checkValueCity:'',
+      checkValueAge:''
     };
 
   }
-      sideChange(clicked){
+      sideChange(checkedCity,checkedAge){
           this.setState({
-            selectedSide:clicked
+            checkValueCity:checkedCity,
+            checkValueAge:checkedAge
           });
       }
 
    render() {
-    const sideChange = (clicked)=>{this.sideChange(clicked)}
+    const sideChange = (checkedCity,checkedAge)=>{this.sideChange(checkedCity,checkedAge)}
       return (
          <div>
           <MuiThemeProvider>
             <div className='col-md-12' style={{width:'99%'}} >
                   
                   {/*sidebar*/}
-                  <div className=" col-md-3" >
-              <Sidebar questions={data.question} onSideChange={sideChange}/>
+              <div className=" col-md-3" >
+                <Sidebar questions={data.question} onSideChange={sideChange}/>
               </div> 
             
             {/*right part now became container to diffrent subject*/}
             <Paper className=" col-md-9" style={{height:'auto'}} zDepth={3}>
-                    <Card selectedIs={this.state.selectedSide} />
+                    <OverviewCard checkedCity={this.state.checkValueCity} checkValueAge={this.state.checkValueAge} />
                 </Paper>
 
             </div>

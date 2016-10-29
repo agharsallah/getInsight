@@ -1,13 +1,15 @@
 import React,{Component} from 'react';
 import Checkbox from 'material-ui/Checkbox';
 import NumberPop from './NumberPop';
-import data from './data/data'
+
 import Divider from 'material-ui/Divider';
 import Subheader from 'material-ui/Subheader';
 import {RadioButton, RadioButtonGroup} from 'material-ui/RadioButton';
-import AssociatedPie from './AssociatedPie'
-import AssociatedChart from './AssociatedChart'
+/*import AssociatedPie from './AssociatedPie'
+import AssociatedChart from './AssociatedChart'*/
 var numeral = require('numeral');
+import popPerCity from './data/popPerCity'
+import popPerTranche from './data/popPerTranche'
 
 class OverviewCard extends Component{
 	constructor(props) {
@@ -17,7 +19,11 @@ class OverviewCard extends Component{
 			percentege:'100%',
 			som:'',
 			checked:false,
-			radioVal:'total pop is'
+			radioVal:'total pop is',
+			
+			checkValueCity:'',
+        	checkValueAge:''
+
 		}
 		this.handleCheck=this.handleCheck.bind(this)
 		this.handleDetail=this.handleDetail.bind(this)
@@ -70,6 +76,15 @@ class OverviewCard extends Component{
 	}
 
 	render(){
+		console.log(this.props.checkedCity)
+		console.log(this.props.checkValueAge)
+		/*if ((this.props.checkedCity!=='') && (this.props.checkValueAge!=='')) {
+			console.log('both')
+		}else if ((this.props.checkedCity!=='')&&(this.props.checkValueAge==='')) {
+			console.log('checkedCity')		
+		}else{
+			console.log('checkValueAge')
+		}*/
 		return(
 			<div >
 			{/*this component shows the number|% of population */}
@@ -83,7 +98,7 @@ class OverviewCard extends Component{
 			
 			{/*Checkbox for population sexe*/}
 			{/*style={{dislay:'none'}}*/}
-			<div >
+{/*			<div >
 			
 			<RadioButtonGroup 
 			defaultSelected='both' 
@@ -114,18 +129,20 @@ class OverviewCard extends Component{
 			    />
 		    </div>
 		    <br/>
-		    <Divider/>
+		    <Divider/>*/}
 
 		{/*associated chart*/}
-		<Subheader>associated chart (2015)</Subheader>
+		{/*<Subheader>associated chart (2015)</Subheader>
 			<AssociatedPie data={data[4]} ></AssociatedPie>
-		<Divider/>
+		<Divider/>*/}
 		
 		{/*growth chart*/}
+		
 		<Subheader>growth chart</Subheader>
-			<div className='contain'>
+		Under Dev
+{/*			<div className='contain'>
 			<AssociatedChart data={data}></AssociatedChart>
-			</div>
+			</div>*/}
 
 			</div>
 		);
