@@ -5,8 +5,8 @@
 module.exports = {
     entry:  [
                 'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
-                './app/server/views/components/Index.js'
-                /*'./app/server/views/componentSurvey/Index.js'*/
+               /* './app/server/views/components/Index.js'*/
+                './app/server/views/componentSurvey/Index.js'
             ],
     
     module: {
@@ -25,9 +25,9 @@ module.exports = {
     output: {
                 path: __dirname + 'app/public',
                 publicPath: '/',
-                /*filename: 'js/gulp/surveyx.js'*/
-                filename: 'js/gulp/reactx.js'
-    },
+                filename: 'js/gulp/surveyx.js'
+/*                filename: 'js/gulp/reactx.js'
+*/    },
     
     plugins: [
                 new webpack.optimize.OccurenceOrderPlugin(),
