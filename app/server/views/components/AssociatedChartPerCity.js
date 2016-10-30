@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {LineChart, Line, XAxis, YAxis, CartesianGrid,Tooltip,Legend,ResponsiveContainer} from 'Recharts';
-const AssociatedChart = (props)=>{
+const AssociatedChartPerCity = (props)=>{
 
 const data = props.data;
 /*[
@@ -21,6 +21,6 @@ const data = props.data;
       </ResponsiveContainer>
     );
   }
-export default AssociatedChart
+export default AssociatedChartPerCity
 
 

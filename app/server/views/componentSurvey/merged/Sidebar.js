@@ -13,7 +13,8 @@ class Sidebar extends React.Component {
       super(props);
       this.state={
         checkValueCity:'',
-        checkValueAge:''
+        checkValueAge:'',
+        checked:true
       }
          this.handleChangeCity=this.handleChangeCity.bind(this)
          this.handleChangeAge=this.handleChangeAge.bind(this)
@@ -33,7 +34,8 @@ class Sidebar extends React.Component {
    handleMerge(){
     /*so when change happens on the radio boxes I send the
      value to the function that I get as a prop from App.js through param*/
-           this.props.onSideChange(this.state.checkValueCity,this.state.checkValueAge)
+      this.setState({checked:true});
+           this.props.onSideChange(this.state.checkValueCity,this.state.checkValueAge,this.state.checked)
    }
    render() {
 /*       var resultRows = this.props.questions.map(function(result){

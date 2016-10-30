@@ -15,11 +15,11 @@ class OverviewCard extends Component{
 	constructor(props) {
 		super(props);
 		this.state = {
-			count:'11.2 m',
-			percentege:'100%',
+			count:'',
+			percentege:'',
 			som:'',
-			checked:false,
-			radioVal:'total pop is',
+			checked:true,
+			radioVal:'choose an option(s) from sidebar',
 			
 			checkValueCity:'',
         	checkValueAge:''
@@ -27,6 +27,38 @@ class OverviewCard extends Component{
 		}
 		this.handleCheck=this.handleCheck.bind(this)
 		this.handleDetail=this.handleDetail.bind(this)
+	}
+	componentWillMount() {
+		console.log(this.props.checked)
+		this.setState({checked:this.props.checked});
+	}
+
+	componentDidUpdate() {
+				//if one of the checkbox values is changed from empty or both show me the number
+			if (this.state.checked) {
+				if ((this.props.checkedCity!=='') || (this.props.checkValueAge!=='')) {
+					if (this.props.checkedCity!=='') {
+						const city = this.props.checkedCity
+						var som = popPerCity[0][city]
+						var total = popPerCity[0].total.replace(/,/g , "");
+						var per = (parseInt(som)/parseInt(total))
+						console.log(total)
+						this.setState({checkValueCity:this.props.checkedCity,});
+						this.setState({checked:false});
+			this.setState({
+				som:numeral(som).format('0,0')+' K',
+				count:numeral(som).format('0.0a'),
+				radioVal:'the number of pop in '+city,
+				percentege:numeral(per).format('0%')
+			});
+					}else if(this.props.checkValueAge!==''){
+						this.setState({checkValueAge:this.props.checkValueAge});
+					}else{
+						this.setState({checkValueCity:this.props.checkedCity});
+						this.setState({checkValueAge:this.props.checkValueAge});
+					}
+				}
+			}
 	}
 	handleDetail(){
 		console.log(this.state.checked)
@@ -76,15 +108,8 @@ class OverviewCard extends Component{
 	}
 
 	render(){
-		console.log(this.props.checkedCity)
-		console.log(this.props.checkValueAge)
-		/*if ((this.props.checkedCity!=='') && (this.props.checkValueAge!=='')) {
-			console.log('both')
-		}else if ((this.props.checkedCity!=='')&&(this.props.checkValueAge==='')) {
-			console.log('checkedCity')		
-		}else{
-			console.log('checkValueAge')
-		}*/
+
+
 		return(
 			<div >
 			{/*this component shows the number|% of population */}

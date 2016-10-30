@@ -7,7 +7,7 @@ class NumberPop extends Component{
 		let numberst = 'col-md-4 textst';
 		let numberDetailst = 'col-md-4 textst';
 		let display  = this.props.checked ?'block':'none';
-		let col  = this.props.checked ?'col-md-1':'col-md-5';
+		let col  = 'col-md-1';
 		return(
 			<div >
              	<div className=" col-md-3" style={{height: '150px'}}></div>
@@ -17,7 +17,7 @@ class NumberPop extends Component{
 	                   className={numberst}
 	                   zDepth={0}
 	                >
-	             	<h3>the number of {this.props.radioVal}</h3>
+	             	<h3 style={{color:'green'}}> {this.props.radioVal}</h3>
 	             	<p className='texteffect'>{this.props.count}</p> 
 	             	</Paper>
 	             	
@@ -25,8 +25,9 @@ class NumberPop extends Component{
 	             	<Paper 
 	                   className={numberDetailst}
 	                   zDepth={0}
-	                   style={{display: display,height: '150px'}}
+	                   style={{height: '150px'}}
 	                >
+	                <h3 style={{color:'green'}}>Details</h3>
 	             	<p className='detaileffect'>{this.props.countD}</p> 
 	             	<p className='detaileffect'>{this.props.percentege}</p> 
 	             	</Paper>

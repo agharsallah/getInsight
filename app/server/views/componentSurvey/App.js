@@ -18,19 +18,21 @@ class App extends React.Component {
     this.state={
       selectedSide:'Population Overview',
       checkValueCity:'',
-      checkValueAge:''
+      checkValueAge:'',
+      checked:true
     };
 
   }
-      sideChange(checkedCity,checkedAge){
+      sideChange(checkedCity,checkedAge,checked){
           this.setState({
             checkValueCity:checkedCity,
-            checkValueAge:checkedAge
+            checkValueAge:checkedAge,
+           checked:checked
           });
       }
 
    render() {
-    const sideChange = (checkedCity,checkedAge)=>{this.sideChange(checkedCity,checkedAge)}
+    const sideChange = (checkedCity,checkedAge,checked)=>{this.sideChange(checkedCity,checkedAge,checked)}
       return (
          <div>
           <MuiThemeProvider>
@@ -43,7 +45,7 @@ class App extends React.Component {
             
             {/*right part now became container to diffrent subject*/}
             <Paper className=" col-md-9" style={{height:'auto'}} zDepth={3}>
-                    <OverviewCard checkedCity={this.state.checkValueCity} checkValueAge={this.state.checkValueAge} />
+                    <OverviewCard checkedCity={this.state.checkValueCity} checkValueAge={this.state.checkValueAge} checked={this.state.checked} />
                 </Paper>
 
             </div>
