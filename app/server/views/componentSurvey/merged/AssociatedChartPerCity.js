@@ -15,8 +15,7 @@ const data = props.data;
        <CartesianGrid strokeDasharray="3 3"/>
        <Tooltip/>
        <Legend />
-       <Line type="monotone" dataKey="male" stroke="#0088FE" activeDot={{r: 8}}/>
-       <Line type="monotone" dataKey="female" stroke="#FF8042" />
+       <Line type="monotone" dataKey="Tunis" stroke="#0088FE" activeDot={{r: 8}}/>
       </LineChart>
       </ResponsiveContainer>
     );
